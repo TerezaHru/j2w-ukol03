@@ -17,17 +17,34 @@
     <a href="/detail">
         [#items as vizitka]
         <div class="vizitka">
+            [#if vizitka.jmeno?exists]
             <div class="jmeno">${vizitka.jmeno}</div>
+            [/#if]
+            [#if vizitka.firma?exists]
             <div class="firma">${vizitka.firma}</div>
+            [/#if]
             <div class="udaje">
                 <div class="adresa">
+                    [#if vizitka.ulice?exists]
                     <div>${vizitka.ulice}</div>
-                    <div><span>${vizitka.obecPsc}</span>${vizitka.celaAdresa}</div>
+                    [/#if]
+                    [#if vizitka.obecPsc?exists]
+                    <div><span>${vizitka.obecPsc}</span>
+                        [/#if]
+                        [#if vizitka.celaAdresa?exists]
+                        ${vizitka.celaAdresa}</div>
+                        [/#if]
                 </div>
                 <div class="kontakty">
-                    <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
+                    [#if vizitka.email?exists]
+                        <div><i class="las la-at"></i> <span>${vizitka.email}</span></div>
+                    [/#if]
+                    [#if vizitka.telefon?exists]
                     <div><i class="las la-phone-alt"></i> <span>${vizitka.telefon}</span></div>
+                     [/#if]
+                    [#if vizitka.web?exists]
                     <div><i class="las la-globe"></i> <span>${vizitka.web}</span></div>
+                    [/#if]
                 </div>
             </div>
         </div>
