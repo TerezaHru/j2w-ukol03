@@ -13,25 +13,41 @@
 <body>
 <div class="detail">
     <div class="vizitka">
-        <div class="jmeno">Dita (Přikrylová) Formánková</div>
-        <div class="firma">Czechitas z. s.</div>
+        [#if zamestnanec.jmeno?exists]
+        <div class="jmeno">${zamestnanec.jmeno}</div>
+        [/#if]
+        [#if zamestnanec.firma?exists]
+        <div class="firma">${zamestnanec.firma}</div>
+        [/#if]
         <div class="udaje">
             <div class="adresa">
-                <div>Václavské náměstí 837/11</div>
-                <div><span>11000</span> Praha 1</div>
+            [#if zamestnanec.ulice?exists]
+                <div>${zamestnanec.ulice}</div>
+            [/#if]
+            [#if zamestnanec.obecPsc?exists]
+                <div><span>${zamestnanec.obecPsc}</span>
+            [/#if]
+            [#if zamestnanec.celaAdresa?exists]
+                    ${zamestnanec.celaAdresa}</div>
+            [/#if]
             </div>
             <div class="kontakty">
-                <div><i class="las la-at"></i> <span>dita@czechitas.cs</span></div>
-                <div><i class="las la-phone-alt"></i> <span>+420 800123456</span></div>
-                <div><i class="las la-globe"></i> <span>www.czechitas.cz</span></div>
+                [#if zamestnanec.email?exists]
+                <div><i class="las la-at"></i> <span>   ${zamestnanec.email} </span></div>
+                [/#if]
+                [#if zamestnanec.telefon?exists]
+                <div><i class="las la-phone-alt"></i> <span>${zamestnanec.telefon}</span></div>
+                [/#if]
+                [#if zamestnanec.web?exists]
+                <div><i class="las la-globe"></i> <span>${zamestnanec.web}</span></div>
+                [/#if]
             </div>
         </div>
     </div>
 
     <div class="mapa">
-        <iframe style="border:none" src="https://frame.mapy.cz/?q=${"Václavské náměstí 837/11, Praha"?url}" width="100%" height="100%" frameborder="0"></iframe>
+        <iframe style="border:none" src="https://frame.mapy.cz/?q=${zamestnanec.ulice?url}" width="100%" height="100%" frameborder="0"></iframe>
     </div>
-
 </div>
 </body>
 </html>
