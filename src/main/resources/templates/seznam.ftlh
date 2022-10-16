@@ -13,9 +13,8 @@
 <body>
 [#list zamestnanci]
 <div class="seznam">
-
-    <a href="/detail">
-        [#items as vizitka]
+    [#items as vizitka]
+    <a href="/detail/${vizitka.id}">
         <div class="vizitka">
             [#if vizitka.jmeno?exists]
             <div class="jmeno">${vizitka.jmeno}</div>
@@ -48,9 +47,8 @@
                 </div>
             </div>
         </div>
-        [/#items]
     </a>
-
+    [/#items]
 
 
 

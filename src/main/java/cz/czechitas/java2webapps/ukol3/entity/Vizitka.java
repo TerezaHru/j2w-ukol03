@@ -11,10 +11,20 @@ public class Vizitka {
         private String telefon;
         private String web;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String id;
+
         public Vizitka() {
         }
 
-        public Vizitka(String jmeno, String firma, String ulice, String obecPsc, String celaAdresa, String email, String telefon, String web) {
+        public Vizitka(String jmeno, String firma, String ulice, String obecPsc, String celaAdresa, String email, String telefon, String web, String id) {
             this.jmeno = jmeno;
             this.firma = firma;
             this.ulice = ulice;
@@ -23,6 +33,7 @@ public class Vizitka {
             this.email = email;
             this.telefon = telefon;
             this.web = web;
+            this.id = id;
         }
 
         public String getObecPsc() {
